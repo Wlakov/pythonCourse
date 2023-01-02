@@ -1,17 +1,18 @@
+# Показати звичайний текст
 def display_menu():
     print('Обрахунок комунальних послуг\n'
           'Під час обрахунку використовуються перші 5 цифр на газовому лічильнику\n'
           'Але БЕЗ нулів на початку')
 
 
-def calculate_pokazniki():
+def calculate_pokazniki():  # функція для присвоєння змінним значень фукццій
     display_menu()
     num1, num2 = get_pokazniki_from_user()
     input_tariff = choose_tariff()
     tariff(input_tariff, num1, num2)
 
 
-def choose_tariff(lower_bound: int = 1, upper_bound: int = 3) -> int:
+def choose_tariff(lower_bound: int = 1, upper_bound: int = 3) -> int:  # функція вибору тарифу
     while True:
         try:
             print("""Виберіть тариф(числом) 
@@ -27,7 +28,7 @@ def choose_tariff(lower_bound: int = 1, upper_bound: int = 3) -> int:
             print('Error,try again')
 
 
-def tariff(input_tariff, num1, num2) -> int:
+def tariff(input_tariff, num1, num2) -> int:  # функція обрахунку показників за тарифом
     if input_tariff == 1:
         x = (num2 - num1) * 7.98
         print(f'Сума до сплати:{round(x, 2)} гривень')
@@ -41,11 +42,7 @@ def tariff(input_tariff, num1, num2) -> int:
         exit()
 
 
-# display_menu()
-# chosen = choose_tariff()
-# print(chosen)
-
-def get_pokazniki_from_user() -> int:
+def get_pokazniki_from_user() -> int:  # функція отримання показників лічильника від користувача
     num1 = ''
     num2 = ''
     while True:
