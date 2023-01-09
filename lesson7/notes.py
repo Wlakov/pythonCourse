@@ -22,18 +22,22 @@ def earliest(my_notes):  # функція, яка виводить від най
 def latest(my_notes):  # функція, яка виводить від найпізнішої до найранішої
     print("Від найпізнішої до найранішої")
     for note in my_notes[::-1]:
-        print(note)
+        print(f'>{note}')
 
 
-def shortest(notes: list):  # вивід найменшої за довжиною нотатки
-    print(min(notes))
+def shortest(notes: list):  # вивід від найменшої за довжиною нотатки
+    sorted_n = sorted(notes, key=len)
+    for note in sorted_n:
+        print(f'>{note}')
 
 
-def longest(notes: list):  # вивід найбільшої за довжиною нотатки
-    print(max(notes))
+def longest(notes: list):  # вивід від найбільшої за довжиною нотатки
+    sorted_n = sorted(notes, reverse=True, key=len)
+    for note in sorted_n:
+        print(f'>{note}')
 
 
-def start(notes):  # функція, яка отримує список і маніпулює з ним
+def start(notes):  # функція, яка отримує список і маніпулює ним в залежності від команди
     command = get_command()
     if command == 'add':
         add(notes)
@@ -51,7 +55,7 @@ def start(notes):  # функція, яка отримує список і ма�
 
 
 if __name__ == '__main__':
-    commands = [    # список команди у записнику
+    commands = [  # список команди у записнику
         'add',
         'earliest',
         'latest',
@@ -62,6 +66,3 @@ if __name__ == '__main__':
     notes = []
     while True:
         start(notes)
-
-
-
